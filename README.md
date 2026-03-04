@@ -1,31 +1,44 @@
 # team-claude-config
 
-Shared Claude Code configuration for Team Alpha. This repo provides a **marketplace** of rules and skills that any project can pull in to give Claude consistent, opinionated behavior across the team.
+Shared Claude Code configuration for Team Alpha. This repo is a **Claude plugin marketplace** — it distributes rules and skills that any project can install to give Claude consistent, opinionated behavior across the team.
 
 ---
 
-## How it works
+## Adding this marketplace to Claude Code
 
-The marketplace is defined in [`marketplace.json`](./marketplace.json). Each **package** bundles two things:
+Run the following command inside Claude Code (any project):
 
-- **Rules** — a Markdown file that gets added to a project's `CLAUDE.md`. Rules tell Claude how to write code: conventions, patterns, and things to avoid.
-- **Skills** — slash-command prompt files (`.md`) that get copied into a project's `.claude/skills/` directory. Skills give Claude reusable, structured instructions for common tasks.
+```
+/plugin marketplace add kklasing/team-claude-config
+```
 
-### Setting up a project
+This registers the repo as a marketplace called **Team-Alpha-Tools**. You only need to do this once — it persists across all your projects.
 
-1. **Copy the rules** for the packages you want into your project's `CLAUDE.md` (or `import` them with a `@path` reference if your Claude Code version supports it):
+To confirm it was added:
 
-   ```bash
-   cat packages/nextjs/rules.md >> /your-project/CLAUDE.md
-   ```
+```
+/plugin marketplace list
+```
 
-2. **Install the skills** by copying the skill files into your project's `.claude/skills/` directory:
+---
 
-   ```bash
-   cp packages/nextjs/skills/*.md /your-project/.claude/skills/
-   ```
+## Installing a package
 
-3. Open Claude Code in your project — the rules are active immediately, and the skills are available as slash commands.
+Once the marketplace is registered, install any plugin from it:
+
+```
+/plugin install nextjs@Team-Alpha-Tools
+```
+
+You'll be prompted to choose a scope:
+
+| Scope | Who it applies to |
+|---|---|
+| **User** (default) | You, across all projects |
+| **Project** | Everyone on the team (saved to `.claude/settings.json`) |
+| **Local** | You, in this repo only |
+
+For team-wide consistency, choose **Project** so the plugin is checked into version control.
 
 ---
 
@@ -35,9 +48,9 @@ The marketplace is defined in [`marketplace.json`](./marketplace.json). Each **p
 
 > Rules and skills for Next.js App Router development with TypeScript and Tailwind CSS.
 
-**Rules file:** `packages/nextjs/rules.md`
+Installing this plugin gives Claude two things:
 
-The rules cover:
+**Rules** — Claude automatically follows these conventions in every response:
 
 | Area | What's enforced |
 |---|---|
@@ -51,25 +64,37 @@ The rules cover:
 | Error handling | `notFound()` and `redirect()` from `next/navigation`; segment-level `error.tsx` |
 | Env vars | `NEXT_PUBLIC_` prefix rules; Zod validation at startup |
 
-**Skills:**
+**Skills** — slash commands available in any Claude Code conversation:
 
-| Skill | Usage | Description |
+| Command | Usage | Description |
 |---|---|---|
-| `new-page` | `/new-page <route-path> [description]` | Scaffold an App Router page with `loading.tsx` and `error.tsx` |
-| `new-component` | `/new-component <ComponentName> [client\|server] [description]` | Generate a typed, Tailwind-styled React component |
-| `new-server-action` | `/new-server-action <action-name> [description]` | Create a Zod-validated Server Action with a wired form component |
-| `new-api-route` | `/new-api-route <route-path> [GET,POST,...] [description]` | Generate a typed `route.ts` handler with validation and error handling |
-| `review-nextjs` | `/review-nextjs [file-path]` | Audit a file for Next.js best-practice violations with fix suggestions |
+| `/new-page` | `/new-page <route-path> [description]` | Scaffold an App Router page with `loading.tsx` and `error.tsx` |
+| `/new-component` | `/new-component <ComponentName> [client\|server] [description]` | Generate a typed, Tailwind-styled React component |
+| `/new-server-action` | `/new-server-action <action-name> [description]` | Create a Zod-validated Server Action with a wired form component |
+| `/new-api-route` | `/new-api-route <route-path> [GET,POST,...] [description]` | Generate a typed `route.ts` handler with validation and error handling |
+| `/review-nextjs` | `/review-nextjs [file-path]` | Audit a file for Next.js best-practice violations with fix suggestions |
+
+---
+
+## Managing plugins
+
+```
+/plugin              # Open the full plugin UI (Discover / Installed / Marketplaces)
+/plugin marketplace update Team-Alpha-Tools   # Pull latest changes from this repo
+/plugin uninstall nextjs@Team-Alpha-Tools     # Remove a plugin
+```
 
 ---
 
 ## Repository structure
 
 ```
-marketplace.json          # Catalog of all packages
+marketplace.json                        # Marketplace catalog
 packages/
   nextjs/
-    rules.md              # Next.js coding rules for CLAUDE.md
+    .claude-plugin/
+      plugin.json                       # Plugin manifest
+    rules.md                            # Next.js coding rules
     skills/
       new-page.md
       new-component.md

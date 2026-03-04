@@ -1,49 +1,11 @@
 {
   "name": "Team-Alpha-Tools",
-  "packages": [
+  "plugins": [
     {
-      "id": "nextjs",
-      "name": "Next.js Development",
+      "name": "nextjs",
       "description": "Rules and skills for Next.js App Router development with TypeScript and Tailwind CSS",
-      "version": "1.0.0",
-      "rules": "./packages/nextjs/rules.md",
-      "skills": [
-        {
-          "id": "new-page",
-          "name": "new-page",
-          "description": "Scaffold a new App Router page with loading and error boundaries",
-          "path": "./packages/nextjs/skills/new-page.md",
-          "usage": "/new-page <route-path> [description]"
-        },
-        {
-          "id": "new-component",
-          "name": "new-component",
-          "description": "Generate a typed, Tailwind-styled React component (server or client)",
-          "path": "./packages/nextjs/skills/new-component.md",
-          "usage": "/new-component <ComponentName> [client|server] [description]"
-        },
-        {
-          "id": "new-server-action",
-          "name": "new-server-action",
-          "description": "Create a validated Server Action with Zod and a wired-up form component",
-          "path": "./packages/nextjs/skills/new-server-action.md",
-          "usage": "/new-server-action <action-name> [description]"
-        },
-        {
-          "id": "new-api-route",
-          "name": "new-api-route",
-          "description": "Generate a typed App Router API route handler with validation and error handling",
-          "path": "./packages/nextjs/skills/new-api-route.md",
-          "usage": "/new-api-route <route-path> [GET,POST,...] [description]"
-        },
-        {
-          "id": "review-nextjs",
-          "name": "review-nextjs",
-          "description": "Audit a file for Next.js best-practice violations with suggested fixes",
-          "path": "./packages/nextjs/skills/review-nextjs.md",
-          "usage": "/review-nextjs [file-path]"
-        }
-      ]
+      "source": "github:kklasing/team-claude-config",
+      "path": "./packages/nextjs"
     }
   ]
 }
