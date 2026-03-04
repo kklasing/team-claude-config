@@ -1,4 +1,9 @@
-# Next.js Development Rules
+---
+name: nextjs-conventions
+description: Apply Next.js App Router coding conventions when writing or reviewing code
+---
+
+When writing or reviewing Next.js code, always follow these conventions:
 
 ## Router
 - Use the **App Router** (`app/`) for all new projects. Do not use `pages/` unless maintaining legacy code.

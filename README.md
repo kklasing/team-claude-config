@@ -1,6 +1,6 @@
 # team-claude-config
 
-Shared Claude Code configuration for Team Alpha. This repo is a **Claude plugin marketplace** — it distributes rules and skills that any project can install to give Claude consistent, opinionated behavior across the team.
+Shared Claude Code configuration for Team Alpha. This repo is a **Claude plugin marketplace** — it distributes agents and skills that any project can install to give Claude consistent, opinionated behavior across the team.
 
 ---
 
@@ -12,7 +12,7 @@ Run the following command inside Claude Code (any project):
 /plugin marketplace add kklasing/team-claude-config
 ```
 
-This registers the repo as a marketplace called **Team-Alpha-Tools**. You only need to do this once — it persists across all your projects.
+This registers the repo as a marketplace called **team-alpha-tools**. You only need to do this once — it persists across all your projects.
 
 To confirm it was added:
 
@@ -27,7 +27,7 @@ To confirm it was added:
 Once the marketplace is registered, install any plugin from it:
 
 ```
-/plugin install nextjs@Team-Alpha-Tools
+/plugin install nextjs@team-alpha-tools
 ```
 
 You'll be prompted to choose a scope:
@@ -50,7 +50,7 @@ For team-wide consistency, choose **Project** so the plugin is checked into vers
 
 Installing this plugin gives Claude two things:
 
-**Rules** — Claude automatically follows these conventions in every response:
+**Agent** (`nextjs-conventions`) — Claude automatically applies these conventions when writing or reviewing code:
 
 | Area | What's enforced |
 |---|---|
@@ -80,8 +80,8 @@ Installing this plugin gives Claude two things:
 
 ```
 /plugin              # Open the full plugin UI (Discover / Installed / Marketplaces)
-/plugin marketplace update Team-Alpha-Tools   # Pull latest changes from this repo
-/plugin uninstall nextjs@Team-Alpha-Tools     # Remove a plugin
+/plugin marketplace update team-alpha-tools   # Pull latest changes from this repo
+/plugin uninstall nextjs@team-alpha-tools     # Remove a plugin
 ```
 
 ---
@@ -89,16 +89,22 @@ Installing this plugin gives Claude two things:
 ## Repository structure
 
 ```
-marketplace.json                        # Marketplace catalog
+marketplace.json                              # Marketplace catalog
 packages/
   nextjs/
     .claude-plugin/
-      plugin.json                       # Plugin manifest
-    rules.md                            # Next.js coding rules
+      plugin.json                             # Plugin manifest
+    agents/
+      nextjs-conventions.md                  # Coding conventions agent
     skills/
-      new-page.md
-      new-component.md
-      new-server-action.md
-      new-api-route.md
-      review-nextjs.md
+      new-page/
+        SKILL.md
+      new-component/
+        SKILL.md
+      new-server-action/
+        SKILL.md
+      new-api-route/
+        SKILL.md
+      review-nextjs/
+        SKILL.md
 ```

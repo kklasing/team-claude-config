@@ -1,11 +1,14 @@
 {
-  "name": "Team-Alpha-Tools",
+  "name": "team-alpha-tools",
+  "owner": {
+    "name": "Team Alpha"
+  },
   "plugins": [
     {
       "name": "nextjs",
       "description": "Rules and skills for Next.js App Router development with TypeScript and Tailwind CSS",
-      "source": "github:kklasing/team-claude-config",
-      "path": "./packages/nextjs"
+      "version": "1.0.0",
+      "source": "./packages/nextjs"
     }
   ]
 }

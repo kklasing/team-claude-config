@@ -1,3 +1,9 @@
+---
+name: new-api-route
+description: Generate a typed Next.js App Router API route handler with validation and error handling
+argument-hint: "<route-path> [GET,POST,...] [description]"
+---
+
 Generate a Next.js App Router API route handler.
 
 Arguments: $ARGUMENTS (format: "route-path [HTTP methods] [description]", e.g. "api/posts GET,POST CRUD for blog posts")

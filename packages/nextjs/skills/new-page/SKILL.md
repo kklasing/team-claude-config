@@ -1,3 +1,9 @@
+---
+name: new-page
+description: Scaffold a new Next.js App Router page with loading and error boundaries
+argument-hint: "<route-path> [description]"
+---
+
 Generate a new Next.js App Router page.
 
 Arguments: $ARGUMENTS (format: "route-path [description]", e.g. "dashboard/settings User settings page")

@@ -1,3 +1,9 @@
+---
+name: new-component
+description: Generate a typed, Tailwind-styled Next.js React component (server or client)
+argument-hint: "<ComponentName> [client|server] [description]"
+---
+
 Scaffold a new reusable Next.js component.
 
 Arguments: $ARGUMENTS (format: "ComponentName [client|server] [description]", e.g. "UserAvatar client Displays user profile picture with fallback initials")

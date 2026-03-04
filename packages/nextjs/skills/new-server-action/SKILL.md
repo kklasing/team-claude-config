@@ -1,3 +1,9 @@
+---
+name: new-server-action
+description: Create a Zod-validated Next.js Server Action with a wired-up form component
+argument-hint: "<action-name> [description]"
+---
+
 Create a Next.js Server Action for a form mutation.
 
 Arguments: $ARGUMENTS (format: "action-name [description]", e.g. "createPost Create a new blog post")

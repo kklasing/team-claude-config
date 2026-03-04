@@ -1,3 +1,9 @@
+---
+name: review-nextjs
+description: Audit a file for Next.js best-practice violations with line-level fix suggestions
+argument-hint: "[file-path]"
+---
+
 Review the current file or selection for Next.js best-practice violations.
 
 Arguments: $ARGUMENTS (optional file path — if omitted, review the currently open/active file)
