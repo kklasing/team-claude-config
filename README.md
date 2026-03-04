@@ -89,7 +89,8 @@ Installing this plugin gives Claude two things:
 ## Repository structure
 
 ```
-marketplace.json                              # Marketplace catalog
+.claude-plugin/
+  marketplace.json                            # Marketplace catalog
 packages/
   nextjs/
     .claude-plugin/
