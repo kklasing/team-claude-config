@@ -4,7 +4,5 @@
   "description": "Rules and skills for Next.js App Router development with TypeScript and Tailwind CSS",
   "author": {
     "name": "Team Alpha"
-  },
-  "skills": "./skills",
-  "agents": "./agents"
+  }
 }
