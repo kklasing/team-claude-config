@@ -1,6 +1,6 @@
 # team-claude-config
 
-Shared Claude Code configuration for Team Alpha. This repo provides a **marketplace** of rules and skills that any project can pull in to give Claude consistent, opinionated behaviour across the team.
+Shared Claude Code configuration for Team Alpha. This repo provides a **marketplace** of rules and skills that any project can pull in to give Claude consistent, opinionated behavior across the team.
 
 ---
 
